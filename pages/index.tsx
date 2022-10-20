@@ -1,6 +1,6 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
-import Header from '../components/header'
+import { Header, Hero, Grid, Card, Spinner } from '../components'
 
 const Home: NextPage = () => {
 	return (
@@ -13,6 +13,10 @@ const Home: NextPage = () => {
 
 			<main className='relative h-screen overflow-y-scroll'>
 				<Header />
+				<Hero />
+				<Grid />
+				<Card />
+				<Spinner />
 			</main>
 		</div>
 	)
