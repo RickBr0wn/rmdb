@@ -1,11 +1,17 @@
 import { NextPage } from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
+import SearchInput from './search-input'
+import { Dispatch, SetStateAction } from 'react'
 
-const Header: NextPage = (): JSX.Element => {
+interface Props {
+	setQuery?: Dispatch<SetStateAction<string>> | undefined
+}
+
+const Header: NextPage<Props> = ({ setQuery }): JSX.Element => {
 	return (
-		<div className='sticky flex top-0 z-50 w-full h-24 bg-zinc-900'>
-			<div className='flex justift-between w-full h-full max-w-7xl m-auto px-4'>
+		<div className='sticky flex top-0 z-40 w-full h-24 bg-zinc-900'>
+			<div className='flex justify-between items-center w-full h-full max-w-7xl m-auto px-4'>
 				<Link href='/'>
 					<div className='flex items-center cursor-pointer'>
 						<div className='invisible md:visible'>
@@ -26,6 +32,13 @@ const Header: NextPage = (): JSX.Element => {
 						</div>
 					</div>
 				</Link>
+				<div>
+					{setQuery ? (
+						<div className='relative flex items-center'>
+							<SearchInput setQuery={setQuery} />
+						</div>
+					) : null}
+				</div>
 			</div>
 		</div>
 	)
