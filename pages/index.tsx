@@ -11,8 +11,6 @@ const Home: NextPage = () => {
 	const { data, fetchNextPage, isLoading, isFetching, error } =
 		useFetchMovies(query)
 
-	console.log('first title: ', data?.pages[0].results[0].title)
-
 	return (
 		<div>
 			<Head>
