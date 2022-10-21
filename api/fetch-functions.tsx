@@ -1,21 +1,20 @@
 export async function basicFetch<T>(endpoint: string): Promise<T> {
-	const req = await fetch(endpoint)
+	const response = await fetch(endpoint)
 
-	if (!req.ok) {
-		throw new Error(`Error ${req.status} - ${req.statusText}`)
+	if (!response.ok) {
+		throw new Error(`Error ${response.status} - ${response.statusText}`)
 	}
 
-	const json = await req.json()
-	return json
+	const data = await response.json()
+
+	return data
 }
 
 export async function fetchMovies(
 	search: string = '',
 	page: number = 1
 ): Promise<Movies> {
-	const endpoint = `/api/movies?search=${search}&page=${page}`
-	const data = await basicFetch<Movies>(endpoint)
-	return data
+	return await basicFetch<Movies>(`/api/movies?search=${search}&page=${page}`)
 }
 
 // Path: api/fetch-functions.tsx

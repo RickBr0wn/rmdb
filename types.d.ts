@@ -20,4 +20,7 @@ interface Movie {
 	genre_ids: number[]
 	adult: boolean
 	video: boolean
+	revenue: number
+	runtime: number
+	bugdet: number
 }
