@@ -1,6 +1,7 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import { useState } from 'react'
+import { UIEvent } from 'react'
 import { useFetchMovies } from '../api/fetch-hooks'
 import { Header, Hero, Grid, Card, Spinner } from '../components'
 import { BACKDROP_SIZE, IMAGE_BASE_URL } from '../config'
@@ -11,6 +12,14 @@ const Home: NextPage = () => {
 	const { data, fetchNextPage, isLoading, isFetching, error } =
 		useFetchMovies(query)
 
+	const handleScroll = (e: UIEvent<HTMLElement>): void => {
+		const { scrollTop, clientHeight, scrollHeight } = e.currentTarget
+
+		if (scrollHeight - scrollTop === clientHeight) {
+			fetchNextPage()
+		}
+	}
+
 	return (
 		<div>
 			<Head>
@@ -19,7 +28,10 @@ const Home: NextPage = () => {
 				<link rel='icon' href='/favicon.ico' />
 			</Head>
 
-			<main className='relative h-screen overflow-y-scroll'>
+			<main
+				className='relative h-screen overflow-y-scroll'
+				onScroll={handleScroll}
+			>
 				<Header setQuery={setQuery} />
 				{!query && data && data.pages ? (
 					<Hero
@@ -59,7 +71,7 @@ const Home: NextPage = () => {
 						  )
 						: null}
 				</Grid>
-				<Spinner />
+				{isLoading || isFetching ? <Spinner /> : null}
 			</main>
 		</div>
 	)
