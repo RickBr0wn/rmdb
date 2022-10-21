@@ -5,3 +5,5 @@ const Spinner: NextPage = (): JSX.Element => {
 }
 
 export default Spinner
+
+// Path: components/spinner.tsx

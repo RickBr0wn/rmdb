@@ -5,3 +5,5 @@ const Card: NextPage = (): JSX.Element => {
 }
 
 export default Card
+
+// Path: components/card.tsx

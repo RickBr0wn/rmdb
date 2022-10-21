@@ -5,3 +5,5 @@ const Grid: NextPage = (): JSX.Element => {
 }
 
 export default Grid
+
+// Path: components/grid.tsx
