@@ -47,12 +47,20 @@ const Home: NextPage = () => {
 					{data && data.pages
 						? data.pages.map(page =>
 								page.results.map(movie => (
-									<div key={movie.id}>{movie.original_title}</div>
+									<div key={movie.id}>
+										<Card
+											imgUrl={
+												movie.poster_path
+													? IMAGE_BASE_URL + BACKDROP_SIZE + movie.poster_path
+													: '/no_image.jpg'
+											}
+											title={movie.original_title}
+										/>
+									</div>
 								))
 						  )
 						: null}
 				</Grid>
-				<Card />
 				<Spinner />
 			</main>
 		</div>
