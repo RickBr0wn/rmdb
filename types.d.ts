@@ -24,3 +24,27 @@ interface Movie {
 	runtime: number
 	bugdet: number
 }
+
+interface Cast {
+	id: number
+	name: string
+	character: string
+	profile_path: string
+	credit_id: string
+}
+
+interface Crew {
+	id: number
+	name: string
+	job: string
+	profile_path: string
+	credit_id: string
+}
+
+interface Credits {
+	id: number
+	cast: Cast[]
+	crew: Crew[]
+}
+
+// Path: index.ts

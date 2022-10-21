@@ -1,14 +1,14 @@
-import { NextPage } from 'next'
+import { FC } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import SearchInput from './search-input'
+import { SearchInput } from '../components'
 import { Dispatch, SetStateAction } from 'react'
 
 interface Props {
 	setQuery?: Dispatch<SetStateAction<string>> | undefined
 }
 
-const Header: NextPage<Props> = ({ setQuery }): JSX.Element => {
+const Header: FC<Props> = ({ setQuery }): JSX.Element => {
 	return (
 		<div className='sticky flex top-0 z-40 w-full h-24 bg-zinc-900'>
 			<div className='flex justify-between items-center w-full h-full max-w-7xl m-auto px-4'>

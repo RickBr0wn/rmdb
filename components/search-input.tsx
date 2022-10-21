@@ -1,4 +1,4 @@
-import { NextPage } from 'next'
+import { FC } from 'react'
 import Image from 'next/image'
 import { ChangeEvent, Dispatch, SetStateAction, useRef, useState } from 'react'
 
@@ -6,7 +6,7 @@ interface Props {
 	setQuery: Dispatch<SetStateAction<string>>
 }
 
-const SearchInput: NextPage<Props> = ({ setQuery }): JSX.Element => {
+const SearchInput: FC<Props> = ({ setQuery }): JSX.Element => {
 	const [text, setText] = useState<string>('')
 	const timer = useRef<NodeJS.Timeout>()
 	const TIME = 300 // 300ms

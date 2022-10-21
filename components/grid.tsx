@@ -1,4 +1,4 @@
-import { NextPage } from 'next/types'
+import { FC } from 'react'
 import { ReactNode } from 'react'
 
 type Props = {
@@ -7,7 +7,7 @@ type Props = {
 	children: ReactNode
 }
 
-const Grid: NextPage<Props> = ({ className, children, title }): JSX.Element => {
+const Grid: FC<Props> = ({ className, children, title }): JSX.Element => {
 	return (
 		<div className={className}>
 			<h2 className='text-xl font-bold pb-4'>{title}</h2>

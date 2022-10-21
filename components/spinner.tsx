@@ -1,6 +1,6 @@
-import { NextPage } from 'next/types'
+import { FC } from 'react'
 
-const Spinner: NextPage = (): JSX.Element => (
+const Spinner: FC = (): JSX.Element => (
 	<div className='flex justify-center items-center m-4'>
 		<svg
 			className='w-12 h-12 animate-spin'

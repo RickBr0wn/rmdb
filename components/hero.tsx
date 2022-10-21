@@ -1,4 +1,4 @@
-import { NextPage } from 'next/types'
+import { FC } from 'react'
 import Image from 'next/image'
 
 type Props = {
@@ -7,7 +7,7 @@ type Props = {
 	text: string
 }
 
-const Hero: NextPage<Props> = ({ imgUrl, title, text }): JSX.Element => {
+const Hero: FC<Props> = ({ imgUrl, title, text }): JSX.Element => {
 	return (
 		<div className='relative w-full h-128'>
 			<div className='relative flex flex-col-reverse h-full max-w-7xl m-auto z-10 pb-12 text-center md:text-left'>

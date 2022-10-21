@@ -1,5 +1,6 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
+import Link from 'next/link'
 import { useState } from 'react'
 import { UIEvent } from 'react'
 import { useFetchMovies } from '../api/fetch-hooks'
@@ -57,16 +58,18 @@ const Home: NextPage = () => {
 					{data && data.pages
 						? data.pages.map(page =>
 								page.results.map(movie => (
-									<div key={movie.id}>
-										<Card
-											imgUrl={
-												movie.poster_path
-													? IMAGE_BASE_URL + BACKDROP_SIZE + movie.poster_path
-													: '/no_image.jpg'
-											}
-											title={movie.original_title}
-										/>
-									</div>
+									<Link href={`/${movie.id}`} key={movie.id}>
+										<div className='cursor-pointer hover:opacity-80 duration-300'>
+											<Card
+												imgUrl={
+													movie.poster_path
+														? IMAGE_BASE_URL + BACKDROP_SIZE + movie.poster_path
+														: '/no_image.jpg'
+												}
+												title={movie.original_title}
+											/>
+										</div>
+									</Link>
 								))
 						  )
 						: null}
