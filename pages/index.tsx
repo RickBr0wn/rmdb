@@ -1,8 +1,7 @@
-import type { NextPage } from 'next'
+import type { NextPage } from 'next/types'
 import Head from 'next/head'
 import Link from 'next/link'
-import { useState } from 'react'
-import { UIEvent } from 'react'
+import { useState, UIEvent } from 'react'
 import { useFetchMovies } from '../api/fetch-hooks'
 import { Header, Hero, Grid, Card, Spinner } from '../components'
 import { BACKDROP_SIZE, IMAGE_BASE_URL } from '../config'
@@ -19,6 +18,10 @@ const Home: NextPage = () => {
 		if (scrollHeight - scrollTop === clientHeight) {
 			fetchNextPage()
 		}
+	}
+
+	if (error) {
+		return <div>Something went wrong!</div>
 	}
 
 	return (

@@ -22,7 +22,7 @@ interface Movie {
 	video: boolean
 	revenue: number
 	runtime: number
-	bugdet: number
+	budget: number
 }
 
 interface Cast {
