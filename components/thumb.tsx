@@ -1,11 +1,11 @@
-import { NextPage } from 'next/types'
+import { FC } from 'react'
 import Image from 'next/image'
 
 type Props = {
 	imgUrl: string
 }
 
-const Thumb: NextPage<Props> = ({ imgUrl }): JSX.Element => {
+const Thumb: FC<Props> = ({ imgUrl }): JSX.Element => {
 	return (
 		<Image
 			placeholder='blur'

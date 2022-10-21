@@ -1,4 +1,4 @@
-import { NextPage } from 'next/types'
+import { FC } from 'react'
 import Thumb from './thumb'
 
 type Props = {
@@ -7,7 +7,7 @@ type Props = {
 	subtitle?: string
 }
 
-const Card: NextPage<Props> = ({ imgUrl, title, subtitle }): JSX.Element => {
+const Card: FC<Props> = ({ imgUrl, title, subtitle }): JSX.Element => {
 	return (
 		<div className='h-80'>
 			<div className='relative h-full'>
