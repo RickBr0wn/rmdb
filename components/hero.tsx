@@ -5,3 +5,5 @@ const Hero: NextPage = (): JSX.Element => {
 }
 
 export default Hero
+
+// Path: components/hero.tsx

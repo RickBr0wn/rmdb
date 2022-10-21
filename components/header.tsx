@@ -32,3 +32,5 @@ const Header: NextPage = (): JSX.Element => {
 }
 
 export default Header
+
+// Path: components/header.tsx
