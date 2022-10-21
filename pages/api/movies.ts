@@ -1,5 +1,5 @@
-// Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from 'next'
+import { basicFetch } from '../../api/fetch-functions'
 import { SEARCH_BASE_URL, POPULAR_BASE_URL } from '../../config'
 
 export default async function handler(
@@ -12,9 +12,7 @@ export default async function handler(
 		? `${SEARCH_BASE_URL}${search}&page=${page}`
 		: `${POPULAR_BASE_URL}&page=${page}`
 
-	const data = await fetch(endpoint)
+	const data = await basicFetch<Movies>(endpoint)
 
-	const json = await data.json()
-
-	res.status(200).json(json)
+	res.status(200).json(data)
 }

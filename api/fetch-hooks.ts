@@ -5,7 +5,7 @@ export const useFetchMovies = (
 	search: string
 ): UseInfiniteQueryResult<Movies, unknown> => {
 	return useInfiniteQuery(
-		['movies', 'search'],
+		['movies', search],
 		({ pageParam = 1 }) => fetchMovies(search, pageParam),
 		{
 			getNextPageParam: (lastPage: Movies) => {
