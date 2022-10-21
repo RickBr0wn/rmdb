@@ -3,6 +3,7 @@ import Head from 'next/head'
 import { useState } from 'react'
 import { useFetchMovies } from '../api/fetch-hooks'
 import { Header, Hero, Grid, Card, Spinner } from '../components'
+import { BACKDROP_SIZE, IMAGE_BASE_URL } from '../config'
 
 const Home: NextPage = () => {
 	const [query, setQuery] = useState<string>('')
@@ -22,7 +23,19 @@ const Home: NextPage = () => {
 
 			<main className='relative h-screen overflow-y-scroll'>
 				<Header setQuery={setQuery} />
-				<Hero />
+				{!query && data && data.pages ? (
+					<Hero
+						imgUrl={
+							data.pages[0].results[0].backdrop_path
+								? IMAGE_BASE_URL +
+								  BACKDROP_SIZE +
+								  data.pages[0].results[0].backdrop_path
+								: '/no_image.jpg'
+						}
+						title={data.pages[0].results[0].title}
+						text={data.pages[0].results[0].overview}
+					/>
+				) : null}
 				<Grid />
 				<Card />
 				<Spinner />
